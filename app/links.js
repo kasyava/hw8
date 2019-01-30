@@ -12,7 +12,7 @@ const router = express.Router();
 router.post("/", async (req, res) => {
 
     let linkData = req.body;
-    console.log(linkData);
+    //console.log(linkData);
 
 
     let shortUrl;

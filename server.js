@@ -33,12 +33,13 @@ db.once('open', () => {
 
 app.get('/:shortUrl',async (req,res)=>{
     let data = req.params.shortUrl;
-
+    console.log(data);
     if(data.length === 7){
         try {
             let results = await modelLinks.findOne({'shortUrl': data});
-            if (results) res.status(301).redirect(results.originalUrl);
-            else res.status(404).send({"Error": "Not found"});
+            console.log(results);
+             if (results) res.status(301).redirect(results.originalUrl);
+             else res.status(404).send({"Error": "Not found"});
         }
         catch (e) {
             res.status(500).send(e);
