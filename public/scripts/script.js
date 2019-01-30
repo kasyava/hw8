@@ -1,6 +1,5 @@
 $(() =>{
 
-    //let myForm = $("#myForm");
     const baseUrl = window.location.href;
 
     $("#btnSendMessage").on('click', (e)=>{
@@ -11,7 +10,7 @@ $(() =>{
         const data = {
             originalUrl: originalUrl
         };
-        console.log(data);
+
         $.ajax({
             headers: {
                 "Content-Type":"application/json",

@@ -7,10 +7,8 @@ const modelLinks = require("./models/links");
 
 const config = require("./config");
 
-
 mongoose.connect(config.db.url + '/' + config.db.name, { useNewUrlParser: true });
 const db = mongoose.connection;
-
 
 const app = express();
 
@@ -37,9 +35,8 @@ app.get('/:shortUrl',async (req,res)=>{
     if(data.length === 7){
         try {
             let results = await modelLinks.findOne({'shortUrl': data});
-            console.log(results);
-             if (results) res.status(301).redirect(results.originalUrl);
-             else res.status(404).send({"Error": "Not found"});
+            if (results) res.status(301).redirect(results.originalUrl);
+            else res.status(404).send({"Error": "Not found"});
         }
         catch (e) {
             res.status(500).send(e);

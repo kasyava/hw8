@@ -1,5 +1,4 @@
 const express = require("express");
-
 const nanoid =  require("nanoid");
 
 
@@ -12,7 +11,6 @@ const router = express.Router();
 router.post("/", async (req, res) => {
 
     let linkData = req.body;
-    //console.log(linkData);
 
 
     let shortUrl;
